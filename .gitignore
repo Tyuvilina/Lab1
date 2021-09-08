@@ -30,3 +30,6 @@
 *.exe
 *.out
 *.app
+# Izmen
+*.vcxproj.filters
+*.vcxproj.user
