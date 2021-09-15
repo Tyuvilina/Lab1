@@ -151,7 +151,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="animals.cpp" />
+    <ClCompile Include="bird.cpp" />
+    <ClCompile Include="cat.cpp" />
+    <ClCompile Include="fish.cpp" />
     <ClCompile Include="Lab1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="animals.h" />
+    <ClInclude Include="bird.h" />
+    <ClInclude Include="cat.h" />
+    <ClInclude Include="fish.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
