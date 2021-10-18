@@ -25,43 +25,39 @@ cat::~cat()
 	cout << "диструктор кошек" << endl;
 }
 void cat::set()
-{
-	cout << "введите породу кошки" << endl;
-	cin >> species;
-	cout << "введите окрас кошки" << endl;
-	cin >> color;
-	cout << "владельца кошки" << endl;
-	cin >> ovner;
-	cout << "введите кличку кошки" << endl;
-	cin >> nick;
+{	
+	cin.ignore(32767, '\n');
+	cout << "введите породу кота" << endl;
+	getline(cin, species);
+	cout << "введите окрас кота" << endl;
+	getline(cin, color);
+	cout << "введите влфдельца кота" << endl;
+	getline(cin, ovner);
+	cout << "введите кличку кота" << endl;
+	getline(cin, nick);
 }
-void cat::red()
+void cat::set(string a, string b, string c, string d)
 {
-	int choise;
-	string a;
-	cout << "ввыберите что поменять\n1 - порода\n2 - окрас\n3 - владелец кошки\n4 - место обитания" << endl;
-	cin >> choise;
-	switch (choise)
+	species = a;
+	color = b;
+	ovner = c;
+	nick = d;
+}
+void cat::red(int ind, string zam)
+{
+	switch (ind)
 	{
 	case 1:
-		cout << "смените породу" << endl;
-		cin >> a;
-		species = a;
+		species = zam;
 		break;
 	case 2:
-		cout << "смените окрас" << endl;
-		cin >> a;
-		color = a;
+		color = zam;
 		break;
 	case 3:
-		cout << "смените тип питания" << endl;
-		cin >> a;
-		ovner = a;
+		ovner = zam;
 		break;
 	case 4:
-		cout << "смените кличку" << endl;
-		cin >> a;
-		nick = a;
+		nick = zam;
 		break;
 	default:
 		cout << "неверный ввод" << endl;
@@ -71,8 +67,28 @@ void cat::red()
 }
 void cat::get()
 {
-	cout << "порода птицы :" << species << endl;
-	cout << "окрас птицы :" << color << endl;
-	cout << "имя владельца :" << ovner << endl;
-	cout << "кличка :" << nick << endl;
+	cout << "Кошка" << endl;
+	cout << "--------------------------------------------------------------------------" << endl;
+	cout << "порода кошки :" << species << endl;
+	cout << "окрас кошки :" << color << endl;
+	cout << "имя владельца кошки :" << ovner << endl;
+	cout << "кличка кошки :" << nick << endl;
+	cout << "--------------------------------------------------------------------------" << endl;
+
 }
+void cat::save()
+{
+	ofstream fout;
+	fout.open("kep.txt", ios_base::app);
+	if (!fout.is_open())
+	{
+		cout << "файл не открылсся";
+	}
+	else
+	{
+		fout << 2 << endl << species << endl << color << endl << ovner << endl << nick << endl;
+		fout.close();
+	}
+
+}
+

@@ -24,35 +24,32 @@ fish::~fish()
 }
 void fish::set()
 {
+	cin.ignore(32767, '\n');
 	cout << "введите породу рыбы" << endl;
-	cin >> species;
+	getline(cin, species);
 	cout << "введите окрас рыбы" << endl;
-	cin >> color;
+	getline(cin, color);
 	cout << "введите тип питания рыбы" << endl;
-	cin >> typeoff;
+	getline(cin, typeoff);
 }
-void fish::red()
+void fish::set(string a, string b, string c)
 {
-	int choise;
-	string a;
-	cout << "ввыберите что поменять\n1 - порода\n2 - окрас\n3 - тип питания\n4 - место обитания" << endl;
-	cin >> choise;
-	switch (choise)
+	species = a;
+	color = b;
+	typeoff = c;
+}
+void fish::red(int ind, string zam)
+{
+	switch (ind)
 	{
 	case 1:
-		cout << "смените породу" << endl;
-		cin >> a;
-		species = a;
+		species = zam;
 		break;
 	case 2:
-		cout << "смените окрас" << endl;
-		cin >> a;
-		color = a;
+		color = zam;
 		break;
 	case 3:
-		cout << "смените тип питания" << endl;
-		cin >> a;
-		typeoff = a;
+		typeoff = zam;
 		break;
 	default:
 		cout << "неверный ввод" << endl;
@@ -62,7 +59,26 @@ void fish::red()
 }
 void fish::get()
 {
+	cout << "Рыба" << endl;
+	cout << "--------------------------------------------------------------------------" << endl;
 	cout << "порода рыбы :" << species << endl;
 	cout << "окрас рыбы :" << color << endl;
 	cout << "тип питания рыбы :" << typeoff << endl;
+	cout << "--------------------------------------------------------------------------" << endl;
+
+}
+void fish::save()
+{
+	ofstream fout;
+	fout.open("kep.txt", ios_base::app);
+	if (!fout.is_open())
+	{
+		cout << "файл не открылсся";
+	}
+	else
+	{
+		fout << 3 << endl << species << endl << color << endl << typeoff << endl;
+		fout.close();
+	}
+
 }

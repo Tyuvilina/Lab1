@@ -8,11 +8,13 @@ public:
     cat(string a, string b, string c, string d);
     cat(const cat& copy);
     ~cat();
-    void red();
+    void red(int ind, string zam);
     void set();
+    void set(string a, string b, string c, string d);
     void get();
+    void save();
 
-private:
+protected:
     string species;
     string color;
     string ovner;
