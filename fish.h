@@ -8,11 +8,12 @@ public:
     fish(string a, string b, string c);
     fish(const fish& copy);
     ~fish();
-    void red();
+    void red(int ind, string zam);
     void set();
+    void set(string a, string b, string c);
     void get();
-
-private:
+    void save();
+protected:
     string species;
     string color;
     string typeoff;

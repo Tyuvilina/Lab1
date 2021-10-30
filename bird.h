@@ -8,11 +8,13 @@ public:
     bird(string a, string b, string c, string d);
     bird(const bird& copy);
     ~bird();
-    void red();
+    void red(int ind, string zam);
     void set();
+    void set(string a, string b, string c, string d);
     void get();
+    void save();
 
-private:
+protected:
     string species;
     string color;
     string typeoff;
