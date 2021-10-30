@@ -31,7 +31,7 @@ void cat::set()
 	getline(cin, species);
 	cout << "введите окрас кота" << endl;
 	getline(cin, color);
-	cout << "введите влфдельца кота" << endl;
+	cout << "введите владельца кота" << endl;
 	getline(cin, ovner);
 	cout << "введите кличку кота" << endl;
 	getline(cin, nick);

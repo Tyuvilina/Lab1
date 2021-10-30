@@ -157,6 +157,7 @@
     <ClCompile Include="fish.cpp" />
     <ClCompile Include="Keeper.cpp" />
     <ClCompile Include="Lab1.cpp" />
+    <ClCompile Include="menu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animals.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="cat.h" />
     <ClInclude Include="fish.h" />
     <ClInclude Include="Keeper.h" />
+    <ClInclude Include="menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

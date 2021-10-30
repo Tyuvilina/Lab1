@@ -7,15 +7,66 @@ Keeper::Keeper()
 Keeper::~Keeper()
 {
 	elem* buf;
-	while (head->ukaz != 0)
+	if (size > 0)
 	{
-		buf = head;
-		head = head->ukaz;
-		buf->str->~animals();
-		delete(buf);
+		while (head->ukaz != 0)
+		{
+			buf = head;
+			head = head->ukaz;
+			buf->str->~animals();
+			delete(buf);
+		}
+		head->str->~animals();
+		delete(head);
 	}
-	head->str->~animals();
-	delete(head);
+}
+void Keeper::dele(int ind)
+{
+	elem* buf = head, * buf2 = head;
+	if (size == 0)
+	{
+		cout << "нет элементов" << endl;
+	}
+	else
+	{
+		if (ind == size)
+		{
+			head = head->ukaz;
+			buf->str->~animals();
+			delete(buf);
+			size--;
+		}
+		else
+		{
+			for (int i = 1; i < size - ind; i++)
+			{
+				buf = buf->ukaz;
+			}
+			buf2 = buf->ukaz;
+			if (ind == 1)
+			{
+				delete(buf2);
+				buf->ukaz = 0;
+				size--;
+			}
+			else
+			{
+				if (ind < size || ind > 0)
+				{
+					buf2 = buf2->ukaz;
+					delete(buf->ukaz);
+					buf->ukaz = buf2;
+					size--;
+				}
+				else
+				{
+					cout << " Нет такого элемента" << endl;
+				}
+			}
+
+		}
+	}
+
 }
 void Keeper::push(animals* a)
 {
@@ -44,6 +95,20 @@ animals* Keeper::operator[] (const int index)
 		buf = buf->ukaz;
 	}
 	return(buf->str);
+}
+void Keeper::get()
+{
+	if (size == 0)
+	{
+		cout << "нет элементов" << endl;
+	}
+	else
+	{
+		for (int i = 0; i < size; i++)
+		{
+			(*this)[i]->get();
+		}
+	}
 }
 void Keeper::save()
 {

@@ -11,8 +11,10 @@ public:
 	Keeper();
 	~Keeper();
 	void push(animals* a);
+	void dele(int ind);
 	animals* operator[] (const int index);
 	void save();
+	void get();
 	void load();
 	int getsize();
 private:
